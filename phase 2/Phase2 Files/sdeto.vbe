@@ -1,0 +1,136 @@
+-- VHDL data flow description generated from `sdeto`
+--		date : Thu Apr 25 07:39:39 2019
+
+
+-- Entity Declaration
+
+ENTITY sdeto IS
+  PORT (
+  vdd : in BIT;	-- vdd
+  clk : in BIT;	-- clk
+  vss : in BIT;	-- vss
+  reset : in BIT;	-- reset
+  daytime : in BIT;	-- daytime
+  code : in bit_vector(3 DOWNTO 0) ;	-- code
+  door : out BIT;	-- door
+  alarm : out BIT	-- alarm
+  );
+END sdeto;
+
+
+-- Architecture Declaration
+
+ARCHITECTURE VBE OF sdeto IS
+  SIGNAL dacs_cs : REG_VECTOR(7 DOWNTO 0) REGISTER;	-- dacs_cs
+  SIGNAL dacs_cs_se : BIT;		-- dacs_cs_se
+  SIGNAL dacs_ns_se : BIT;		-- dacs_ns_se
+  SIGNAL dacs_cs_sf : BIT;		-- dacs_cs_sf
+  SIGNAL dacs_ns_sf : BIT;		-- dacs_ns_sf
+  SIGNAL dacs_cs_s5 : BIT;		-- dacs_cs_s5
+  SIGNAL dacs_ns_s5 : BIT;		-- dacs_ns_s5
+  SIGNAL dacs_cs_s0 : BIT;		-- dacs_cs_s0
+  SIGNAL dacs_ns_s0 : BIT;		-- dacs_ns_s0
+  SIGNAL dacs_cs_sa : BIT;		-- dacs_cs_sa
+  SIGNAL dacs_ns_sa : BIT;		-- dacs_ns_sa
+  SIGNAL dacs_cs_s6 : BIT;		-- dacs_cs_s6
+  SIGNAL dacs_ns_s6 : BIT;		-- dacs_ns_s6
+  SIGNAL dacs_cs_s2 : BIT;		-- dacs_cs_s2
+  SIGNAL dacs_ns_s2 : BIT;		-- dacs_ns_s2
+  SIGNAL dacs_cs_ss : BIT;		-- dacs_cs_ss
+  SIGNAL dacs_ns_ss : BIT;		-- dacs_ns_ss
+  SIGNAL dacs_ns : BIT_VECTOR(7 DOWNTO 0);	-- dacs_ns
+
+BEGIN
+  dacs_ns(0) <= dacs_ns_se;
+  dacs_ns(1) <= dacs_ns_sf;
+  dacs_ns(2) <= dacs_ns_s5;
+  dacs_ns(3) <= dacs_ns_s0;
+  dacs_ns(4) <= dacs_ns_sa;
+  dacs_ns(5) <= dacs_ns_s6;
+  dacs_ns(6) <= dacs_ns_s2;
+  dacs_ns(7) <= dacs_ns_ss;
+  dacs_ns_ss <= dacs_cs_sf;
+  dacs_cs_ss <= dacs_cs(7);
+  dacs_ns_s2 <= (dacs_cs_ss AND NOT(code(0)) AND code(1) AND NOT(
+code(2)) AND NOT(code(3)));
+  dacs_cs_s2 <= dacs_cs(6);
+  dacs_ns_s6 <= (dacs_cs_s2 AND NOT(code(0)) AND code(1) AND 
+code(2) AND NOT(code(3)));
+  dacs_cs_s6 <= dacs_cs(5);
+  dacs_ns_sa <= (dacs_cs_s6 AND NOT(code(0)) AND code(1) AND NOT(
+code(2)) AND code(3));
+  dacs_cs_sa <= dacs_cs(4);
+  dacs_ns_s0 <= (dacs_cs_sa AND NOT(code(0)) AND NOT(code(1)) AND
+ NOT(code(2)) AND NOT(code(3)));
+  dacs_cs_s0 <= dacs_cs(3);
+  dacs_ns_s5 <= (dacs_cs_s0 AND code(0) AND NOT(code(1)) AND 
+code(2) AND NOT(code(3)));
+  dacs_cs_s5 <= dacs_cs(2);
+  dacs_ns_sf <= dacs_cs_s5;
+  dacs_cs_sf <= dacs_cs(1);
+  dacs_ns_se <= ((dacs_cs_s0 AND (NOT(code(0)) OR code(1) OR NOT(
+code(2)) OR code(3))) OR (dacs_cs_s2 AND (code(0) OR NOT
+(code(1)) OR NOT(code(2)) OR code(3))) OR (
+dacs_cs_s6 AND (code(0) OR NOT(code(1)) OR code(2) OR NOT(
+code(3)))) OR (dacs_cs_sa AND (code(0) OR code(1) OR 
+code(2) OR code(3))) OR (dacs_cs_ss AND (code(0) OR NOT(
+code(1)) OR code(2) OR code(3))));
+  dacs_cs_se <= dacs_cs(0);
+  label0 : BLOCK ((clk AND NOT((clk'STABLE))) = '1')
+  BEGIN
+    dacs_cs(0) <= GUARDED (dacs_ns(0) AND NOT(reset OR (code(0) AND NOT(
+code(1)) AND code(2) AND daytime AND code(3) AND NOT(
+reset))));
+  END BLOCK label0;
+  label1 : BLOCK ((clk AND NOT((clk'STABLE))) = '1')
+  BEGIN
+    dacs_cs(1) <= GUARDED ((dacs_ns(1) AND NOT(reset)) OR (code(0) AND NOT(
+code(1)) AND code(2) AND daytime AND code(3) AND NOT(
+reset)));
+  END BLOCK label1;
+  label2 : BLOCK ((clk AND NOT((clk'STABLE))) = '1')
+  BEGIN
+    dacs_cs(2) <= GUARDED (dacs_ns(2) AND NOT(reset OR (code(0) AND NOT(
+code(1)) AND code(2) AND daytime AND code(3) AND NOT(
+reset))));
+  END BLOCK label2;
+  label3 : BLOCK ((clk AND NOT((clk'STABLE))) = '1')
+  BEGIN
+    dacs_cs(3) <= GUARDED (dacs_ns(3) AND NOT(reset OR (code(0) AND NOT(
+code(1)) AND code(2) AND daytime AND code(3) AND NOT(
+reset))));
+  END BLOCK label3;
+  label4 : BLOCK ((clk AND NOT((clk'STABLE))) = '1')
+  BEGIN
+    dacs_cs(4) <= GUARDED (dacs_ns(4) AND NOT(reset OR (code(0) AND NOT(
+code(1)) AND code(2) AND daytime AND code(3) AND NOT(
+reset))));
+  END BLOCK label4;
+  label5 : BLOCK ((clk AND NOT((clk'STABLE))) = '1')
+  BEGIN
+    dacs_cs(5) <= GUARDED (dacs_ns(5) AND NOT(reset OR (code(0) AND NOT(
+code(1)) AND code(2) AND daytime AND code(3) AND NOT(
+reset))));
+  END BLOCK label5;
+  label6 : BLOCK ((clk AND NOT((clk'STABLE))) = '1')
+  BEGIN
+    dacs_cs(6) <= GUARDED (dacs_ns(6) AND NOT(reset OR (code(0) AND NOT(
+code(1)) AND code(2) AND daytime AND code(3) AND NOT(
+reset))));
+  END BLOCK label6;
+  label7 : BLOCK ((clk AND NOT((clk'STABLE))) = '1')
+  BEGIN
+    dacs_cs(7) <= GUARDED ((dacs_ns(7) AND NOT(code(0) AND NOT(code(1)) AND
+ code(2) AND daytime AND code(3) AND NOT(reset))) 
+OR reset);
+  END BLOCK label7;
+
+alarm <= (dacs_cs_se AND (NOT(code(0)) OR code(1) OR NOT(
+code(2)) OR NOT(daytime) OR NOT(code(3))) AND NOT(reset)
+);
+
+door <= ((NOT(reset) AND daytime AND NOT(NOT(code(3)) OR 
+(NOT(code(2)) OR (code(1) OR NOT(code(0)))))) OR (
+dacs_cs_sf AND (NOT(code(0)) OR code(1) OR NOT(code(2)) OR 
+NOT(daytime) OR NOT(code(3))) AND NOT(reset)));
+END;

@@ -1,0 +1,83 @@
+
+                   @@@@@@                          @@@    @@@
+                     @@                             @@     @ 
+                     @@                             @@@    @ 
+                     @@           @@@       @@@     @ @@   @ 
+                     @@         @@   @@   @@   @@   @ @@   @ 
+                     @@        @@     @@ @@     @@  @  @@  @ 
+                     @@        @@     @@ @@     @@  @   @@ @ 
+                     @@        @@     @@ @@     @@  @   @@ @ 
+                     @@      @ @@     @@ @@     @@  @    @@@ 
+                     @@     @   @@   @@   @@   @@   @     @@ 
+                   @@@@@@@@@@     @@@       @@@    @@@    @@ 
+
+                           Local optimization on Nets
+
+             Alliance CAD System 5.0 20090901, loon 5.0 [2003/12/07]
+             Copyright (c) 2000-2019,                 ASIM/LIP6/UPMC
+             Author(s):                              François Donnet
+             E-mail        :             alliance-users@asim.lip6.fr
+
+	MBK_IN_LO	: vst
+	MBK_OUT_LO	: vst
+	MBK_TARGET_LIB	: /usr/lib64/alliance/cells/sxlib
+
+Reading parameter file 'paramfile.lax'...
+50% area - 50% delay optimization
+Reading file 'sdetr_b.vst'...
+Controlling file 'paramfile.lax'...
+Reading lib '/usr/lib64/alliance/cells/sxlib'...
+Capacitances on file 'sdetr_b.vst'...
+Delays on file 'sdetr_b.vst'...2545 ps
+Area on file 'sdetr_b.vst'...77750 lamda² (with over-cell routing)
+Details...
+	inv_x2: 8 (7%)
+	na2_x1: 6 (7%)
+	o2_x2: 5 (8%)
+	no4_x1: 4 (7%)
+	no2_x1: 4 (5%)
+	nao22_x1: 4 (7%)
+	na3_x1: 3 (4%)
+	no3_x1: 3 (4%)
+	sff1_x4: 3 (17%)
+	a2_x2: 3 (4%)
+	oa22_x2: 3 (5%)
+	noa22_x1: 2 (3%)
+	on12_x1: 2 (3%)
+	a4_x2: 2 (4%)
+	noa2ao222_x1: 1 (2%)
+	xr2_x1: 1 (2%)
+	an12_x1: 1 (1%)
+	Total: 55
+Worst RC on file 'sdetr_b.vst'...416 ps
+Inserting buffers on critical path for file 'sdetr_b_l.vst'...1 buffer inserted -> 2517 ps
+Improving RC on critical path for file 'sdetr_b_l.vst'...2497 ps
+Improving all RC for file 'sdetr_b_l.vst'...
+Worst RC on file 'sdetr_b_l.vst'...416 ps
+Area on file 'sdetr_b_l.vst'...79000 lamda² (with over-cell routing)
+Details...
+	inv_x2: 7 (6%)
+	na2_x1: 6 (7%)
+	o2_x2: 5 (7%)
+	no4_x1: 4 (7%)
+	no2_x1: 4 (5%)
+	nao22_x1: 4 (7%)
+	na3_x1: 3 (4%)
+	no3_x1: 3 (4%)
+	sff1_x4: 3 (17%)
+	a2_x2: 3 (4%)
+	oa22_x2: 3 (5%)
+	noa22_x1: 2 (3%)
+	on12_x1: 2 (3%)
+	a4_x2: 2 (4%)
+	buf_x2: 1 (1%)
+	noa2ao222_x1: 1 (2%)
+	xr2_x1: 1 (2%)
+	an12_x1: 1 (1%)
+	inv_x4: 1 (1%)
+	Total: 56
+Critical path (no warranty)...2497 ps from 'dacs_cs 2' to 'dacs_cs_0_ins'
+Saving file 'sdetr_b_l.vst'...
+Saving delay gradient in xsch color file 'sdetr_b_l.xsc'...
+End of loon...
+

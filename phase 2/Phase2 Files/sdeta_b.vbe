@@ -1,0 +1,72 @@
+-- VHDL data flow description generated from `sdeta_b`
+--		date : Thu Apr 25 07:39:58 2019
+
+
+-- Entity Declaration
+
+ENTITY sdeta_b IS
+  PORT (
+  vdd : in BIT;	-- vdd
+  clk : in BIT;	-- clk
+  vss : in BIT;	-- vss
+  reset : in BIT;	-- reset
+  daytime : in BIT;	-- daytime
+  code : in bit_vector(3 DOWNTO 0) ;	-- code
+  door : out BIT;	-- door
+  alarm : out BIT	-- alarm
+  );
+END sdeta_b;
+
+
+-- Architecture Declaration
+
+ARCHITECTURE behaviour_data_flow OF sdeta_b IS
+  SIGNAL dacs_cs : REG_VECTOR(2 DOWNTO 0) REGISTER;	-- dacs_cs
+  SIGNAL aux1 : BIT;		-- aux1
+  SIGNAL aux2 : BIT;		-- aux2
+  SIGNAL aux5 : BIT;		-- aux5
+  SIGNAL aux8 : BIT;		-- aux8
+  SIGNAL aux10 : BIT;		-- aux10
+  SIGNAL aux14 : BIT;		-- aux14
+  SIGNAL aux15 : BIT;		-- aux15
+  SIGNAL aux16 : BIT;		-- aux16
+  SIGNAL aux18 : BIT;		-- aux18
+
+BEGIN
+  aux18 <= (NOT(code(3)) AND (code(0) AND NOT(dacs_cs(1))));
+  aux16 <= (NOT(code(3)) AND NOT(code(0)));
+  aux15 <= (NOT(reset) AND dacs_cs(1));
+  aux14 <= (((NOT(dacs_cs(2)) AND code(2)) AND code(1)) AND 
+dacs_cs(0));
+  aux10 <= ((dacs_cs(2) AND NOT(code(2))) AND code(1));
+  aux8 <= (((dacs_cs(2) AND code(2)) AND NOT(code(1))) AND 
+NOT(dacs_cs(0)));
+  aux5 <= (((aux1 AND NOT(reset)) AND code(3)) AND code(0));
+  aux2 <= NOT(NOT(aux1) OR NOT(code(3)) OR NOT(code(0)));
+  aux1 <= NOT((NOT(daytime) OR NOT(code(2))) OR code(1));
+  label0 : BLOCK ((NOT((clk'STABLE)) AND clk) = '1')
+  BEGIN
+    dacs_cs (0) <= GUARDED (reset OR aux2 OR (aux10 AND dacs_cs(0) AND aux16
+) OR (dacs_cs(0) AND dacs_cs(1)) OR (aux8 AND 
+aux18));
+  END BLOCK label0;
+  label1 : BLOCK ((NOT((clk'STABLE)) AND clk) = '1')
+  BEGIN
+    dacs_cs (1) <= GUARDED (aux5 OR (aux14 AND NOT(reset) AND aux16) OR ((
+NOT(dacs_cs(2)) OR (code(3) AND NOT(code(0)))) AND (
+(NOT(dacs_cs(2)) AND dacs_cs(0)) OR (aux10 AND NOT
+(dacs_cs(0)))) AND aux15) OR (aux8 AND NOT(reset) 
+AND aux18));
+  END BLOCK label1;
+  label2 : BLOCK ((NOT((clk'STABLE)) AND clk) = '1')
+  BEGIN
+    dacs_cs (2) <= GUARDED ((((NOT(dacs_cs(2)) AND NOT(code(2)) AND NOT(
+code(1)) AND aux16) OR dacs_cs(0)) AND dacs_cs(1)) OR 
+reset OR aux2 OR (aux14 AND aux16));
+  END BLOCK label2;
+
+alarm <= (NOT(aux2) AND NOT(dacs_cs(2)) AND NOT(dacs_cs(0)
+) AND NOT(reset) AND NOT(dacs_cs(1)));
+
+door <= ((dacs_cs(2) AND dacs_cs(0) AND aux15) OR aux5);
+END;

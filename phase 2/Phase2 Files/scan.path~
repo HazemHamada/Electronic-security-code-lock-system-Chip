@@ -1,0 +1,13 @@
+BEGIN_PATH_REG
+sdet_cs_0_ins
+sdet_cs_1_ins
+sdet_cs_2_ins
+sdet_cs_3_ins
+END_PATH_REG
+
+
+BEGIN_CONNECTOR
+SCAN_IN scanin
+SCAN_OUT scanout
+SCAN_TEST test
+END_CONNECTOR

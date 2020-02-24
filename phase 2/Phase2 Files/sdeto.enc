@@ -1,0 +1,10 @@
+# Encoding figure "dacs"
+-dacs o 8
+se	0	1
+sf	1	2
+s5	2	4
+s0	3	8
+sa	4	10
+s6	5	20
+s2	6	40
+ss	7	80
