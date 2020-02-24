@@ -1,0 +1,158 @@
+
+                   @@@    @@@           @@@@@@@              
+                    @@     @              @@   @@            
+                    @@@    @              @@    @@           
+                    @ @@   @    @@@@@     @@    @@     @@@   
+                    @ @@   @   @     @    @@   @@    @@   @@ 
+                    @  @@  @  @@     @@   @@@@@     @@     @@
+                    @   @@ @  @@@@@@@@@   @@  @@    @@     @@
+                    @   @@ @  @@          @@   @@   @@     @@
+                    @    @@@  @@      @   @@   @@   @@     @@
+                    @     @@   @@    @@   @@    @@   @@   @@ 
+                   @@@    @@     @@@@   @@@@@   @@@    @@@   
+
+                               Negotiating Router
+
+                   Alliance CAD System 5.0 20090901,  nero 5.0
+                   Copyright (c) 2002-2019,     ASIM/LIP6/UPMC
+                   E-mail        : alliance-users@asim.lip6.fr
+
+                                S/N 20080611.1
+
+
+  o  MBK environment :
+
+     MBK_IN_LO       := vst
+     MBK_OUT_LO      := vst
+     MBK_IN_PH       := ap
+     MBK_OUT_PH      := ap
+     MBK_WORK_LIB    := .
+     MBK_CATA_LIB    := .
+                        /usr/lib64/alliance/cells/sxlib
+                        /usr/lib64/alliance/cells/dp_sxlib
+                        /usr/lib64/alliance/cells/rflib
+                        /usr/lib64/alliance/cells/rf2lib
+                        /usr/lib64/alliance/cells/ramlib
+                        /usr/lib64/alliance/cells/romlib
+                        /usr/lib64/alliance/cells/pxlib
+                        /usr/lib64/alliance/cells/padlib
+     MBK_CATAL_NAME  := CATAL
+     MBK_VDD         := vdd
+     MBK_VSS         := vss
+     MBK_SEPAR       := .
+
+  o  Loading netlist "sdetj_scan"...
+  o  Loading layout "sdet_p"...
+  o  Flattening layout...
+  o  Flattening netlist...
+  o  Building netlist dual representation (lofigchain)...
+  o  Binding logical & physical views...
+
+  o  Loading design into grid...
+     o  Using seed cell "a2_x2_ins" (model "a2_x2").
+     o  Grid offset : (0,0) [adjust (0,0)]
+     o  Small design, global routing disabled.
+     o  Allocating grid size [69,61,3].
+     o  Loading external terminals.
+     o  Finding obstacles.
+     o  Loading nets into grid.
+     o  Allocating the net scheduler.
+     o  Reading power grid.
+
+  o  Local routing stage.
+     - [  68] (hp :=     0) "vdd"
+     - [  67] (hp :=     0) "vss"
+     - [  66] (hp :=     8) "a2_x2_sig"
+     - [  65] (hp :=     8) "no3_x1_4_sig"
+     - [  64] (hp :=     9) "na4_x1_2_sig"
+     - [  63] (hp :=    10) "na2_x1_5_sig"
+     - [  62] (hp :=    10) "na2_x1_3_sig"
+     - [  61] (hp :=    10) "no3_x1_sig"
+     - [  60] (hp :=    10) "a4_x2_sig"
+     - [  59] (hp :=    11) "no4_x1_sig"
+     - [  58] (hp :=    11) "no3_x1_2_sig"
+     - [  57] (hp :=    11) "a4_x2_4_sig"
+     - [  56] (hp :=    11) "scanin"
+     - [  55] (hp :=    13) "no2_x1_6_sig"
+     - [  54] (hp :=    14) "na3_x1_sig"
+     - [  53] (hp :=    14) "a4_x2_3_sig"
+     - [  52] (hp :=    14) "scanout"
+     - [  51] (hp :=    15) "no2_x1_sig"
+     - [  50] (hp :=    16) "na3_x1_5_sig"
+     - [  49] (hp :=    16) "na3_x1_2_sig"
+     - [  48] (hp :=    17) "na3_x1_6_sig"
+     - [  47] (hp :=    17) "na2_x1_2_sig"
+     - [  46] (hp :=    18) "na3_x1_4_sig"
+     - [  45] (hp :=    18) "no4_x1_2_sig"
+     - [  44] (hp :=    18) "no4_x1_3_sig"
+     - [  43] (hp :=    18) "no2_x1_4_sig"
+     - [  42] (hp :=    19) "o4_x2_sig"
+     - [  41] (hp :=    19) "not_reset"
+     - [  40] (hp :=    19) "a4_x2_2_sig"
+     - [  39] (hp :=    20) "a3_x2_sig"
+     - [  38] (hp :=    21) "not_dacs_ns_s2"
+     - [  37] (hp :=    21) "noa22_x1_sig"
+     - [  36] (hp :=    23) "no3_x1_3_sig"
+     - [  35] (hp :=    25) "na2_x1_4_sig"
+     - [  34] (hp :=    25) "no4_x1_4_sig"
+     - [  33] (hp :=    26) "not_dacs_cs 1"
+     - [  32] (hp :=    26) "o2_x2_sig"
+     - [  31] (hp :=    26) "no2_x1_3_sig"
+     - [  30] (hp :=    28) "na3_x1_3_sig"
+     - [  29] (hp :=    28) "not_dacs_ns_s6"
+     - [  28] (hp :=    31) "a3_x2_2_sig"
+     - [  27] (hp :=    31) "no2_x1_5_sig"
+     - [  26] (hp :=    36) "a3_x2_3_sig"
+     - [  25] (hp :=    37) "na2_x1_sig"
+     - [  24] (hp :=    37) "na4_x1_sig"
+     - [  23] (hp :=    37) "a3_x2_4_sig"
+     - [  22] (hp :=    38) "not_code 1"
+     - [  21] (hp :=    43) "not_dacs_cs_sf"
+     - [  20] (hp :=    44) "clk"
+     - [  19] (hp :=    44) "not_code 3"
+     - [  18] (hp :=    50) "alarm"
+     - [  17] (hp :=    54) "not_dacs_cs 0"
+     - [  16] (hp :=    55) "door"
+     - [  15] (hp :=    56) "not_daytime"
+     - [  14] (hp :=    57) "not_dacs_cs 2"
+     - [  13] (hp :=    58) "dacs_cs 2"
+     - [  12] (hp :=    60) "no2_x1_2_sig"
+     - [  11] (hp :=    60) "not_code 2"
+     - [  10] (hp :=    63) "code 2"
+     - [   9] (hp :=    76) "code 1"
+              > AStar unable to find a path.
+              > Re-routing with pri := 256.
+     - [  10] (hp :=    31) "no2_x1_5_sig"
+     - [   9] (hp :=    44) "not_code 3"
+     - [   8] (hp :=    79) "oa22_x2_sig"
+     - [   7] (hp :=    80) "code 3"
+     - [   6] (hp :=    81) "dacs_cs 1"
+     - [   5] (hp :=    82) "dacs_cs 0"
+              > AStar unable to find a path.
+              > Re-routing with pri := 256.
+     - [   8] (hp :=    36) "a3_x2_3_sig"
+     - [   7] (hp :=    43) "not_dacs_cs_sf"
+     - [   6] (hp :=    50) "alarm"
+     - [   5] (hp :=    57) "not_dacs_cs 2"
+     - [   4] (hp :=    86) "not_code 0"
+              > AStar unable to find a path.
+              > Re-routing with pri := 256.
+     - [   4] (hp :=    56) "not_daytime"
+              > AStar unable to find a path.
+              > Re-routing with pri := 256.
+     - [   4] (hp :=    44) "not_code 3"
+     - [   3] (hp :=    88) "test"
+     - [   2] (hp :=    89) "daytime"
+     - [   1] (hp :=    90) "code 0"
+     - [   0] (hp :=   101) "reset"
+
+  o  Routing stats :
+     - routing iterations    := 65888
+     - re-routing iterations := 10500
+     - ratio                 := 13.7456%.
+
+  o  Dumping routing grid.
+  o  Saving MBK figure "sdetj_scan".
+  o  Saving layout as "sdetj_scan"...
+
+
